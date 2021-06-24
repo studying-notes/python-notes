@@ -33,6 +33,12 @@ draft: false  # 草稿
 - 绿色－ USB 数据线：（正）－ DATA+、USBD+、PD+、USBDT+
 - 黑色－地线：GND、Ground
 
+## 驱动
+
+```url
+https://wwa.lanzous.com/i2Xdqjfwsrg
+```
+
 ## 示例
 
 ```py
@@ -49,10 +55,7 @@ def combine_cmd(model_id, param_h, param_l, data_h, data_l):
                                                 checksum(model_id, param_h, param_l, data_h, data_l))
 
 
-combine_cmd(0x01, 0x80, 0x08, 0x00, 0xFE).upper()
-
 if __name__ == '__main__':
-
     s = serial.Serial('COM3', baudrate=115200, timeout=1,
                       bytesize=serial.EIGHTBITS, stopbits=serial.STOPBITS_ONE,
                       parity=serial.PARITY_NONE)

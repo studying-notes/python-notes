@@ -18,6 +18,10 @@ draft: false  # 草稿
 ---
 
 ```shell
+apt-get install -y libbluetooth-dev libboost-python-dev libboost-all-dev
+```
+
+```shell
 pip install pybluez
 ```
 

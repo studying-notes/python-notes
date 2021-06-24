@@ -3,7 +3,7 @@ date: 2020-12-22T15:17:41+08:00  # 创建日期
 author: "Rustle Karl"  # 作者
 
 # 文章
-title: "Python 数据结构的算法复杂度"  # 文章标题
+title: "Python 内置数据结构的复杂度"  # 文章标题
 url:  "posts/py/abc/complexity"  # 设置网页永久链接
 tags: [ "python", "算法复杂度" ]  # 自定义标签
 series: [ "Python 学习笔记"]  # 文章主题/文章系列
