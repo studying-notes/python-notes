@@ -3,8 +3,8 @@ date: 2021-05-28T10:30:20+08:00  # 创建日期
 author: "Rustle Karl"  # 作者
 
 # 文章
-title: "Python concurrent futures 异步管理"  # 文章标题
-url:  "posts/py/libraries/standard/concurrent"  # 设置网页永久链接
+title: "concurrent.futures - 异步管理"  # 文章标题
+url:  "posts/python/libraries/standard/concurrent.futures"  # 设置网页永久链接
 tags: [ "python", "standard", "concurrent" ]  # 自定义标签
 series: [ "Python 学习笔记" ]  # 文章主题/文章系列
 categories: [ "学习笔记"]  # 文章分类
@@ -83,31 +83,3 @@ def main():
 if __name__ == '__main__':
     main()
 ```
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
