@@ -4,7 +4,7 @@ author: "Rustle Karl"  # 作者
 
 # 文章
 title: "Python 运算符优先级"  # 文章标题
-url:  "posts/py/doc/priority"  # 设置网页永久链接
+url:  "posts/python/docs/others/priority"  # 永久链接
 tags: [ "python", "运算符优先级" ]  # 自定义标签
 series: [ "Python 学习笔记"]  # 文章主题/文章系列
 categories: [ "学习笔记"]  # 文章分类
