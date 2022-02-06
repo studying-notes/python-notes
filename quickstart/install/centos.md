@@ -5,7 +5,7 @@ author: "Rustle Karl"  # 作者
 # 文章
 title: "Centos 升级安装 Python"  # 文章标题
 # description: "文章描述"
-url:  "posts/py/doc/install/centos"  # 设置网页永久链接
+url:  "posts/python/quickstart/install/centos"  # 设置网页永久链接
 tags: [ "python", "centos"]  # 标签
 series: [ "Python 学习笔记"]  # 文章主题/文章系列
 categories: [ "学习笔记"]  # 文章分类

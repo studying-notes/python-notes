@@ -1,5 +1,9 @@
 # Python 学习笔记
 
+## 安装部署
+
+- [Centos 升级安装 Python](quickstart/install/centos.md)
+
 ## 标准库
 
 - [struct - 将字节串解读为打包的二进制数据](libraries/standard/struct.md)
