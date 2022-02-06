@@ -3,8 +3,8 @@ date: 2020-11-30T09:49:37+08:00  # 创建日期
 author: "Rustle Karl"  # 作者
 
 # 文章
-title: "Python Logging 日志系统"  # 文章标题
-url:  "posts/py/libraries/standard/logging"  # 设置网页永久链接
+title: "logging - 日志系统"  # 文章标题
+url:  "posts/python/libraries/standard/logging"  # 设置网页永久链接
 tags: [ "python", "standard", "logging" ]  # 自定义标签
 series: [ "Python 学习笔记"]  # 文章主题/文章系列
 categories: [ "学习笔记"]  # 文章分类
@@ -24,12 +24,13 @@ Logging 支持输出不同级别的日志，可以输出到控制台和写入文
 
 Logging 提供 5 个等级的输出，CRITICAL > ERROR > WARNING > INFO > DEBUG > NOTSET，如果把 looger 的级别设置为 INFO，那么小于 INFO 级别的日志都不输出，大于等于 INFO 级别的日志都输出。
 
- Logging 库提供了多个组件：Logger、Handler、Filter、Formatter：
+Logging 库提供了多个组件：Logger、Handler、Filter、Formatter：
 
- Logger 对象提供应用程序可直接使用的接口，供应用代码使用；
-​ Handler 发送日志到适当的目的地；
-​ Filter 提供了过滤日志信息的方法，控制输出；
-​ Formatter 指定日志输出和显示的具体格式。
+Logger 对象提供应用程序可直接使用的接口，供应用代码使用；
+
+- Handler 发送日志到适当的目的地；
+- Filter 提供了过滤日志信息的方法，控制输出；
+- Formatter 指定日志输出和显示的具体格式。
 
 ## 同时输出到控制台和写入文件
 
