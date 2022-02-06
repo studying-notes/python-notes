@@ -3,8 +3,8 @@ date: 2021-01-09T11:59:29+08:00  # 创建日期
 author: "Rustle Karl"  # 作者
 
 # 文章
-title: "Python importlib"  # 文章标题
-url:  "posts/py/libraries/standard/importlib"  # 设置网页永久链接
+title: "importlib - 导入模块"  # 文章标题
+url:  "posts/python/libraries/standard/importlib"  # 设置网页永久链接
 tags: [ "python", "standard", "importlib" ]  # 自定义标签
 series: [ "Python 学习笔记" ]  # 文章主题/文章系列
 categories: [ "学习笔记"]  # 文章分类
@@ -37,14 +37,14 @@ Python提供了importlib包作为标准库的一部分。目的就是提供Pytho
 
 importlib模块支持传入字符串来引入一个模块。我们创建两个简单的模块来验证这个功能。我们将会给予两个模块相同的接口，让它们打印名字以便我们能够区分它们。创建两个模块，分别为foo.py和bar.py，代码如下所示，
 
-```javascript
+```python
 def main():
     print(__name__)
 ```
 
 现在我们使用importlib来引入它们。让我们看看这段代码如何去做的。确保你已经把这段代码放在与上面创建的两个模块相同的目录下。
 
-```javascript
+```python
 #importer.py
 import importlib
 
@@ -65,7 +65,7 @@ if __name__ == "__main__":
 
 Python有一个编码规范就是EAPP：Easier to ask for forgiveness than permision。意思就是经常假设一些事情是存在的（例如，key在词典中），如果出错了，那么就捕获异常。你可以看 [Python标准模块--import](http://www.cnblogs.com/zhbzz2007/p/6048333.html) 文章中我们尝试引入模块，当它不存在时，我们就会捕获到ImportError。如果我们想检查并观察一个模块是否可以引入而不是仅仅是猜测，该如何去做？你可以使用importlib。代码如下：
 
-```javascript
+```python
 #coding:utf-8
 
 import importlib.util
@@ -99,7 +99,7 @@ if __name__ == "__main__":
 
 在这一节中，我想说明importlib的子模块util还有另外一个技巧。你可以使用util通过模块名和文件路径来引入一个模块。示例如下所示，
 
-```javascript
+```python
 #coding:utf-8
 
 import importlib.util
@@ -129,7 +129,7 @@ if __name__ == "__main__":
 
 这个精巧的包叫做import_from_github_com，它可以用于发现和下载github上的包。为了安装他，你需要做的就是按照如下命令使用pip，
 
-```javascript
+```shell
 pip install import_from_github_com
 ```
 
@@ -137,7 +137,7 @@ pip install import_from_github_com
 
 一旦这些已经安装，你可以在Python shell中输入如下命令，
 
-```javascript
+```python
 >>> from github_com.zzzeek import sqlalchemy
 Collecting git+https://github.com/zzzeek/sqlalchemy
 Cloning https://github.com/zzzeek/sqlalchemy to /tmp/pip-acfv7t06-build
