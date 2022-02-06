@@ -272,6 +272,36 @@ driver = webdriver.Firefox(firefox_profile=profile)
 
 `src/advanced/newtab.py`
 
+```python
+from time import sleep
+
+from selenium import webdriver
+
+UserData = 'C:/Users/Admin/AppData/Local/Google/Chrome/User Data'
+
+
+def launch_browser(user_data=UserData) -> webdriver.Chrome:
+    options = webdriver.ChromeOptions()
+
+    if user_data:
+        options.add_argument(f'--user-data-dir={user_data}')
+
+    browser = webdriver.Chrome(options=options)
+    return browser
+
+
+browser = launch_browser()
+
+urls = open('storage/1035186_article_urls.txt').readlines()
+
+total = len(urls)
+
+for i in range(total - 1, -1, -1):
+    print(f'{total - i}/{total}')
+    browser.execute_script(f'window.open("{urls[i].strip()}")')
+    sleep(3)
+```
+
 ## HTML5
 
 ### 测试播放器
