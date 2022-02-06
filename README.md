@@ -10,6 +10,7 @@
 - [tempfile - 生成临时文件和目录](libraries/standard/tempfile.md)
 - [enum - 枚举](libraries/standard/enum.md)
 - [concurrent.futures - 异步管理](libraries/standard/concurrent_futures.md)
+- [hashlib - 安全散列和消息摘要](libraries/standard/hashlib.md)
 
 ## 第三方库
 

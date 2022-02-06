@@ -3,9 +3,9 @@ date: 2020-12-24T08:59:43+08:00  # 创建日期
 author: "Rustle Karl"  # 作者
 
 # 文章
-title: "Python hashlib 安全散列和消息摘要"  # 文章标题
-url:  "posts/py/libraries/standard/hashlib"  # 设置网页永久链接
-tags: [ "python", "standard", "hashlib" ]  # 自定义标签
+title: "hashlib - 安全散列和消息摘要"  # 文章标题
+url:  "posts/python/libraries/standard/hashlib"  # 设置网页永久链接
+tags: [ "python", "standard", "hashlib"]  # 自定义标签
 series: [ "Python 学习笔记"]  # 文章主题/文章系列
 categories: [ "学习笔记"]  # 文章分类
 
@@ -39,32 +39,3 @@ md5.update("I'm a loser.".encode('utf-8'))
 print(u"digest: %s" % md5.digest())
 print(u"hexdigest: %s" % md5.hexdigest())
 ```
-
-```py
-
-```
-
-```py
-
-```
-
-```py
-
-```
-
-```py
-
-```
-
-```py
-
-```
-
-```py
-
-```
-
-```py
-
-```
-
