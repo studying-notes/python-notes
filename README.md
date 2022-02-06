@@ -18,3 +18,5 @@
 - [内置数据结构的复杂度](docs/others/complexity.md)
 - [下划线命名变量区别](docs/others/variable.md)
 - [逆向编译](docs/others/decompile.md)
+- [Jupyter Lab 排错指南](docs/others/jupyterlab.md)
+

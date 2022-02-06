@@ -4,7 +4,7 @@ author: "Rustle Karl"  # 作者
 
 # 文章
 title: "Jupyter Lab 排错指南"  # 文章标题
-url:  "posts/py/doc/jupyterlab"  # 设置网页永久链接
+url:  "posts/python/docs/others/jupyterlab"  # 设置网页永久链接
 tags: [ "python", "pip", "jupyterlab" ]  # 自定义标签
 series: [ "Python 学习笔记"]  # 文章主题/文章系列
 categories: [ "学习笔记"]  # 文章分类
