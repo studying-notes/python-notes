@@ -19,6 +19,7 @@
 
 ## 暂未分类
 
+- [Black - Python 代码格式化工具](docs/others/black.md)
 - [运算符优先级](docs/others/priority.md)
 - [内置数据结构的复杂度](docs/others/complexity.md)
 - [下划线命名变量区别](docs/others/variable.md)
