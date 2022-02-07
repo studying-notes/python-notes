@@ -3,8 +3,8 @@ date: 2021-03-06T20:18:10+08:00  # 创建日期
 author: "Rustle Karl"  # 作者
 
 # 文章
-title: "Python subprocess 子进程管理"  # 文章标题
-url:  "posts/py/libraries/standard/subprocess"  # 设置网页永久链接
+title: "subprocess - 子进程管理"  # 文章标题
+url:  "posts/python/libraries/standard/subprocess"  # 设置网页永久链接
 tags: [ "python", "standard", "subprocess" ]  # 自定义标签
 series: [ "Python 学习笔记" ]  # 文章主题/文章系列
 categories: [ "学习笔记"]  # 文章分类

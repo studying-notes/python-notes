@@ -6,6 +6,7 @@
 
 ## 标准库
 
+- [subprocess - 子进程管理](libraries/standard/subprocess.md)
 - [struct - 将字节串解读为打包的二进制数据](libraries/standard/struct.md)
 - [tempfile - 生成临时文件和目录](libraries/standard/tempfile.md)
 - [enum - 枚举](libraries/standard/enum.md)
