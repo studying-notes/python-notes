@@ -3,6 +3,7 @@
 ## 安装部署
 
 - [Centos 升级安装 Python](quickstart/install/centos.md)
+- [Python 打包分发](quickstart/dist.md)
 
 ## 标准库
 
@@ -15,9 +16,11 @@
 - [hashlib - 安全散列和消息摘要](libraries/standard/hashlib.md)
 - [importlib - 导入模块](libraries/standard/importlib.md)
 - [logging - 日志系统](libraries/standard/logging.md)
+- [ ] threading
 
 ## 第三方库
 
+- [ ] Jinja2
 
 ## 暂未分类
 
