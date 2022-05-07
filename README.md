@@ -47,6 +47,12 @@ draft: false  # 草稿
 
 ## 基础语法
 
+### Python 网络编程攻略
+
+- [第1章_套接字、IPV4和简单的客户端服务器编程](docs/Python网络编程攻略/第1章_套接字、IPV4和简单的客户端服务器编程.md)
+- [第2章_使用多路复用套接字IO提升性能](docs/Python网络编程攻略/第2章_使用多路复用套接字IO提升性能.md)
+- [第3章_IPv6、Unix域套接字和网络接口](docs/Python网络编程攻略/第3章_IPv6、Unix域套接字和网络接口.md)
+
 ## 库
 
 ## 标准库
@@ -60,7 +66,13 @@ draft: false  # 草稿
 - [hashlib - 安全散列和消息摘要](libraries/standard/hashlib.md)
 - [importlib - 导入模块](libraries/standard/importlib.md)
 - [logging - 日志系统](libraries/standard/logging.md)
+- [shlex - 简单的词法分析](libraries/standard/shlex.md)
 
 ## 第三方库
 
 - [Scapy 简介](libraries/tripartite/scapy/README.md) 
+
+## 常用工具
+
+- [自动化测试、持续集成工具 tox](tools/tox.md)
+
