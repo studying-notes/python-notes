@@ -76,3 +76,6 @@ draft: false  # 草稿
 
 - [自动化测试、持续集成工具 tox](tools/tox.md)
 
+## 问题分析
+
+- [Clash for Windows 系统代理时 pip 出现 ProxyError 的情况分析记录](issues/network/proxy/pip.md)
