@@ -76,6 +76,7 @@ draft: false  # 草稿
 
 - [自动化测试、持续集成工具 tox](tools/tox.md)
 - [Anaconda 与 Conda 基本用法](tools/conda.md)
+- [静态类型存根 typeshed](tools/typeshed.md)
 
 ## 问题分析
 
