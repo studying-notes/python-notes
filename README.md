@@ -60,6 +60,7 @@ draft: false  # 草稿
 ### 系统服务
 
 - [platform 获取底层平台的标识数据](libraries/standard/os/platform.md)
+- [logging 日志系统](libraries/standard/os/logging.md)
 
 ### 运行时服务
 
