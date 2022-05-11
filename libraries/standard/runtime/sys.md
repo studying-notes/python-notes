@@ -173,6 +173,30 @@ sys.platform
 
 linux/win32/cygwin/darwin
 
+### 常用系统判断
+
+> form scapy/consts.py
+
+```python
+import platform
+
+WINDOWS_XP = platform.release() == "XP"
+
+from sys import byteorder, platform, maxsize
+
+LINUX = platform.startswith("linux")
+OPENBSD = platform.startswith("openbsd")
+FREEBSD = "freebsd" in platform
+NETBSD = platform.startswith("netbsd")
+DARWIN = platform.startswith("darwin")
+SOLARIS = platform.startswith("sunos")
+WINDOWS = platform.startswith("win32")
+BSD = DARWIN or FREEBSD or OPENBSD or NETBSD
+
+IS_64BITS = maxsize > 2**32
+BIG_ENDIAN = byteorder == 'big'
+```
+
 ## 标准输入、标准输出和标准错误
 
 ```python
