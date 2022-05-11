@@ -57,6 +57,10 @@ draft: false  # 草稿
 
 ## 标准库
 
+### 系统服务
+
+- [platform 获取底层平台的标识数据](libraries/standard/os/platform.md)
+
 ### 运行时服务
 
 - [sys 系统特定参数和函数](libraries/standard/runtime/sys.md)
