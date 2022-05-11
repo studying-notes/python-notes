@@ -57,6 +57,10 @@ draft: false  # 草稿
 
 ## 标准库
 
+### 运行时服务
+
+- [sys 系统特定参数和函数](libraries/standard/runtime/sys.md)
+
 - [queue - 线程安全的队列实现](libraries/standard/queue.md)
 - [subprocess - 子进程管理](libraries/standard/subprocess.md)
 - [struct - 将字节串解读为打包的二进制数据](libraries/standard/struct.md)
