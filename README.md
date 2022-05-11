@@ -61,6 +61,7 @@ draft: false  # 草稿
 
 - [platform 获取底层平台的标识数据](libraries/standard/os/platform.md)
 - [logging 日志系统](libraries/standard/os/logging.md)
+- [logging.config 日志记录配置](libraries/standard/os/logging.config.md)
 
 ### 运行时服务
 
