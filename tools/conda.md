@@ -20,6 +20,12 @@ https://mirrors.tuna.tsinghua.edu.cn/anaconda/archive/
 
 Linux 也只能从安装包安装。
 
+## 环境变量
+
+```shell
+c:\tools\anaconda3;c:\tools\anaconda3\library\mingw-w64\bin;c:\tools\anaconda3\library\usr\bin;c:\tools\anaconda3\library\bin;c:\tools\anaconda3\scripts;
+```
+
 ## 卸载
 
 官方推荐：
