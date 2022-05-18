@@ -3,7 +3,7 @@ date: 2022-05-10T12:39:17+08:00
 author: "Rustle Karl"
 
 title: "Anaconda 与 Conda 基本用法"
-url:  "posts/shell/tools/conda"  # 永久链接
+url:  "posts/shell/developer/conda"  # 永久链接
 tags: [ "shell" ]  # 自定义标签
 series: [ "shell 学习笔记" ]  # 文章主题/文章系列
 categories: [ "学习笔记" ]  # 文章分类
@@ -23,7 +23,15 @@ Linux 也只能从安装包安装。
 ## 环境变量
 
 ```shell
-c:\tools\anaconda3;c:\tools\anaconda3\library\mingw-w64\bin;c:\tools\anaconda3\library\usr\bin;c:\tools\anaconda3\library\bin;c:\tools\anaconda3\scripts;
+c:\developer\anaconda3;c:\developer\anaconda3\library\mingw-w64\bin;c:\developer\anaconda3\library\usr\bin;c:\developer\anaconda3\library\bin;c:\developer\anaconda3\scripts;
+```
+
+## 权限问题
+
+安装的时候不要选择“为所有用户安装”，选了会带来让人崩溃的权限问题。
+
+```shell
+EnvironmentNotWritableError: The current user does not have write permissions to the target environment.
 ```
 
 ## 卸载
