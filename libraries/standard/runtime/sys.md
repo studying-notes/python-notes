@@ -20,8 +20,18 @@ draft: false  # 草稿
 ## 判断是否运行在虚拟环境中
 
 ```python
-sys.base_exec_prefix == sys.base_prefix
+sys.base_exec_prefix == sys.exec_prefix
+# or
+sys.base_prefix == sys.prefix
 ```
+
+exec_prefix 提供特定域的目录前缀，该目录中安装了与平台相关的 Python 文件，默认也是 '/usr/local'。该目录前缀可以在构建时使用 configure 脚本的 --exec-prefix 参数进行设置。
+
+具体而言，所有配置文件（如 pyconfig.h 头文件）都安装在目录 `exec_prefix/lib/pythonX.Y/config` 中，共享库模块安装在 `exec_prefix/lib/pythonX.Y/lib-dynload` 中，其中 X.Y 是 Python 的版本号，如 3.2。
+
+如果在一个 虚拟环境 中，那么该值将在 site.py 中被修改，指向虚拟环境。Python 安装位置仍然可以用 base_exec_prefix 来获取。
+
+在 site.py 运行之前， Python 启动的时候被设置为跟 exec_prefix 同样的值。如果不是运行在 虚拟环境 中，两个值会保持相同；如果 site.py 发现处于一个虚拟环境中， prefix 和 exec_prefix 将会指向虚拟环境。然而 base_prefix 和 base_exec_prefix 将仍然会指向基础的 Python 环境（用来创建虚拟环境的 Python 环境）。
 
 ## 机器字节序
 
@@ -240,3 +250,23 @@ sys.version_info
 ```python
 sys._xoptions
 ```
+
+## 异常错误
+
+```python
+sys.exc_info()
+```
+
+本函数返回的元组包含三个值，它们给出当前正在处理的异常的信息。返回的信息仅限于当前线程和当前堆栈帧。
+
+如果当前堆栈帧没有正在处理的异常，则信息将从下级被调用的堆栈帧或上级调用者等位置获取，依此类推，直到找到正在处理异常的堆栈帧为止。
+
+此处的“处理异常”指的是“执行 except 子句”。
+
+任何堆栈帧都只能访问当前正在处理的异常的信息。
+
+如果整个堆栈都没有正在处理的异常，则返回包含三个 None 值的元组。否则返回值为 (type, value, traceback)。它们的含义是：
+
+- type 是正在处理的异常类型（它是 BaseException 的子类）；
+- value 是异常实例（异常类型的实例）；
+- traceback 是一个 回溯对象，该对象封装了最初发生异常时的调用堆栈。
