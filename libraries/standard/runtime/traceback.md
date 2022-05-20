@@ -79,6 +79,8 @@ print_exception(sys.last_type, sys.last_value, sys.last_traceback, limit, file, 
 traceback.print_stack(f=None, limit=None, file=None)
 ```
 
+与 traceback.print_exception 衍生函数的区别在于它可以在任何情况下打印，而后者只有发生异常才能打印出堆栈回溯。
+
 如果 limit 为正，则打印最多限制堆栈跟踪条目（从调用点开始）。否则，打印最后的 abs(limit) 条目。如果省略限制或无，则打印所有条目。可选的 f 参数可用于指定要启动的备用堆栈帧。可选的文件参数与 print_tb() 的含义相同。
 
 ## traceback.extract_tb
@@ -87,7 +89,17 @@ traceback.print_stack(f=None, limit=None, file=None)
 traceback.extract_tb(tb, limit=None)
 ```
 
-返回一个 StackSummary 对象，该对象表示从 traceback 对象 tb 中提取的“预处理”堆栈跟踪条目列表。它对于堆栈跟踪的替代格式很有用。可选的 limit 参数与 print_tb() 的含义相同。 “预处理”堆栈跟踪条目是一个 FrameSummary 对象，其中包含属性文件名、行号、名称和表示通常为堆栈跟踪打印的信息的行。该行是一个字符串，去掉了前导和尾随空格；如果源不可用，则为无。
+返回一个 StackSummary 对象，该对象表示从 traceback 对象 tb 中提取的“预处理”堆栈跟踪条目列表。它对于堆栈跟踪的替代格式很有用。可选的 limit 参数与 print_tb() 的含义相同。 “预处理”堆栈跟踪条目是一个 FrameSummary 对象，其中包含**属性文件名、行号、名称和表示通常为堆栈跟踪打印的信息的行**。该行是一个字符串，去掉了前导和尾随空格；如果源不可用，则为无。
+
+可以认为返回 [filename, lineno, name, line] 四元列表。StackSummary 对象实现了列表。
+
+```python
+    def __getitem__(self, pos):
+        return (self.filename, self.lineno, self.name, self.line)[pos]
+
+    def __iter__(self):
+        return iter([self.filename, self.lineno, self.name, self.line])
+```
 
 ## traceback.extract_stack
 
