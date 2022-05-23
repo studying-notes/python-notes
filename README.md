@@ -80,6 +80,10 @@ draft: false  # 草稿
 - [logging - 日志系统](libraries/standard/logging.md)
 - [shlex - 简单的词法分析](libraries/standard/shlex.md)
 
+### 打包分发与虚拟环境
+
+- [venv 创建虚拟环境](libraries/standard/packaging/venv.md)
+
 ## 第三方库
 
 - [Scapy 简介](libraries/tripartite/scapy/README.md) 
