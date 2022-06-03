@@ -14,6 +14,22 @@ draft: false  # 草稿
 
 Anaconda 是 shell 的发行版，集成了大量的科学计算第三方库。Conda 是其包管理器，比 Pip 强大的一点是可以安装编译好的 C 库，有时候 Pip 无法安装的，就可以用 Conda 试一下。
 
+> 不建议通过 pip 升级安装时自带的底层依赖库，容易和 conda 冲突。而应该为项目创建单独的虚拟环境。冲突时，可以通过更新 conda 和 anaconda 解决，会自动卸载或升级冲突的包，具体命令见下文。
+
+- [安装](#安装)
+- [环境变量](#环境变量)
+- [权限问题](#权限问题)
+- [卸载](#卸载)
+- [从旧版本升级](#从旧版本升级)
+- [升级包](#升级包)
+- [包管理器命令](#包管理器命令)
+  - [已安装列表](#已安装列表)
+  - [搜索包](#搜索包)
+  - [安装包](#安装包)
+  - [创建虚拟环境](#创建虚拟环境)
+  - [激活虚拟环境](#激活虚拟环境)
+  - [退出当前虚拟环境](#退出当前虚拟环境)
+
 ## 安装
 
 https://mirrors.tuna.tsinghua.edu.cn/anaconda/archive/
@@ -46,10 +62,10 @@ rm -rf ~/anaconda3
 
 ```shell
 #update the conda package manager to the latest version
-conda update conda
+conda update conda -y
 
 #use conda to update Anaconda to the latest version
-conda update anaconda
+conda update anaconda -y
 ```
 
 ## 升级包
