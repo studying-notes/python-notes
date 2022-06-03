@@ -94,6 +94,8 @@ draft: false  # 草稿
 - [Anaconda 与 Conda 基本用法](tools/conda.md)
 - [静态类型存根 typeshed](tools/typeshed.md)
 - [Python 可选静态类型 mypy](tools/mypy.md)
+- [prefect 现代化的数据工作流程平台](tools/prefect.md)
+- [cookiecutters 基于模板生成项目脚手架](tools/cookiecutters.md)
 
 ## 问题分析
 
