@@ -22,6 +22,9 @@ Prefect 是一款基于 Python 的工作流工具。
 - [项目实践](#项目实践)
   - [功能实现](#功能实现)
 - [工作流编排](#工作流编排)
+  - [Server](#server)
+  - [Agent](#agent)
+  - [创建项目](#创建项目)
 - [官方工程模板](#官方工程模板)
 
 ## 快速开始
@@ -107,6 +110,8 @@ flow.register(project_name="GitHub_Trending")
 
 Prefect 提供了开源的 server 以及 UI 来编排工作流。但在使用前，请确保安装了 docker 和 docker-compose。
 
+### Server
+
 如果是第一次启动需要运行以下命令配置本地工作流：
 
 ```shell
@@ -116,16 +121,34 @@ prefect backend server
 运行后会在 ~/.prefect 目录下生成配置文件，之后运行以下命令启动 server：
 
 ```shell
-prefect server start
+prefect server start --postgres-port 25432 --hasura-port 23001 --graphql-port 24001 --ui-port 28080 --server-port 24200
 ```
 
-启动 server 后，访问 http://localhost:8080，如果 server 不安装在本机，则需要修改 ip 地址。同时也要注意修改主页 「PREFECT SERVER」中 GraphQL 的地址。
+访问。。。访问不了，官方文档写的不知道是什么，我需要的、关心的，怎么都找不到，只能打算看看源码写的什么了。不可能就让这个命令在前台执行，不理解为什么不直接给个 docker-compose。
+
+看了一眼源码，立马就懂了。不理解官方封装 Docker 的目的。。。
+
+导出配置，手动部署：
+
+```shell
+prefect server config > docker-compose.yml
+```
+
+又入坑了，生成的文件居然有问题，浪费了不少时间，只能手动修改后终于成功了。
+
+### Agent
 
 执行工作流任务至少需要运行一个 agent，可以在本机开启，命令如下：
 
 ```shell
 prefect agent local start
 ```
+
+全是坑啊，这个项目确实不太行，难怪关注的人不多。
+
+一步一个坑，这里不再重复了，解决方案在 Docker 配置仓库里。
+
+### 创建项目
 
 接下来需要创建项目，可以通过命令行创建项目：
 
