@@ -96,6 +96,7 @@ draft: false  # 草稿
 - [Python 可选静态类型 mypy](tools/mypy.md)
 - [prefect 现代化的数据工作流程平台](tools/prefect.md)
 - [cookiecutters 基于模板生成项目脚手架](tools/cookiecutters.md)
+- [cheat.sh 作弊神器](tools/cheat_sh.md)
 
 ## 问题分析
 
