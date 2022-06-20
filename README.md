@@ -98,6 +98,7 @@ draft: false  # 草稿
 - [cookiecutters 基于模板生成项目脚手架](tools/cookiecutters.md)
 - [cheat.sh 作弊神器](tools/cheat_sh.md)
 - [airflow 任务调度系统](tools/airflow.md)
+- [httpie 命令行网络请求工具](tools/httpie.md)
 
 ## 问题分析
 
