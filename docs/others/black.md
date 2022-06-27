@@ -232,7 +232,7 @@ File -> Settings -> Tools -> External Tools
 ![设置快捷键](http://dd-static.jd.com/ddimg/jfs/t1/212020/34/12018/91956/62006ac7E509acc44/5d3fedd1342a69cf.png)
 
 如果已经习惯了 PyCharm 默认的 `Ctrl + Alt + L` 快捷键格式化代码，那么可以这样设置：
-
+cccc
 1. 在 主菜单 -> 代码 -> 重新格式化代码 中删去快捷键
 2. 给 外部工具 -> External Tools -> Black 设置键盘快捷键`Ctrl + Alt + L`
 

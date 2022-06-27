@@ -12,6 +12,72 @@ toc: true  # 目录
 draft: false  # 草稿
 ---
 
+- [官方文档](#官方文档)
+- [起航 Scapy](#起航-scapy)
+- [第一步](#第一步)
+- [堆加层次（OSI 参考模型）](#堆加层次osi-参考模型)
+- [读取 PCAP 文件](#读取-pcap-文件)
+- [图形转储（PDF，PS）](#图形转储pdfps)
+- [生成一组数据包](#生成一组数据包)
+- [发送数据包](#发送数据包)
+- [Fuzzing](#fuzzing)
+- [发送和接收数据包（`sr`）](#发送和接收数据包sr)
+- [Flags](#flags)
+- [SYN Scans](#syn-scans)
+- [TCP traceroute](#tcp-traceroute)
+- [配置高级 sockets](#配置高级-sockets)
+- [Sniffing](#sniffing)
+- [Filters](#filters)
+- [在循环中接收和发送](#在循环中接收和发送)
+- [导入和导出数据](#导入和导出数据)
+  - [PCAP](#pcap)
+  - [Hexdump](#hexdump)
+  - [Hex rawing](#hex-rawing)
+  - [Base64](#base64)
+  - [Sessions](#sessions)
+- [Making tables](#making-tables)
+- [Routing](#routing)
+- [Gnuplot](#gnuplot)
+- [TCP traceroute (2)](#tcp-traceroute-2)
+- [Wireless frame injection](#wireless-frame-injection)
+- [ACK Scan](#ack-scan)
+- [Xmas Scan](#xmas-scan)
+- [IP Scan](#ip-scan)
+- [ARP Ping](#arp-ping)
+- [ICMP Ping](#icmp-ping)
+- [TCP Ping](#tcp-ping)
+- [UDP Ping](#udp-ping)
+- [Classical attacks](#classical-attacks)
+- [ARP 缓存投毒](#arp-缓存投毒)
+- [TCP Port Scanning](#tcp-port-scanning)
+- [IKE Scanning](#ike-scanning)
+- [Advanced traceroute](#advanced-traceroute)
+  - [TCP SYN traceroute](#tcp-syn-traceroute)
+  - [UDP traceroute](#udp-traceroute)
+  - [DNS traceroute](#dns-traceroute)
+- [Etherleaking](#etherleaking)
+- [ICMP leaking](#icmp-leaking)
+- [VLAN hopping](#vlan-hopping)
+- [Wireless sniffing](#wireless-sniffing)
+- [Simplistic ARP Monitor](#simplistic-arp-monitor)
+- [Identifying rogue DHCP servers on your LAN](#identifying-rogue-dhcp-servers-on-your-lan)
+  - [Problem](#problem)
+  - [Solution](#solution)
+  - [Discussion](#discussion)
+  - [See also](#see-also)
+- [Firewalking](#firewalking)
+- [TCP Timestamp Filtering](#tcp-timestamp-filtering)
+  - [Problem](#problem-1)
+  - [Solution](#solution-1)
+- [Viewing packets with Wireshark](#viewing-packets-with-wireshark)
+  - [Problem](#problem-2)
+- [Solution](#solution-2)
+  - [Discussion](#discussion-1)
+- [OS Fingerprinting](#os-fingerprinting)
+  - [ISN](#isn)
+  - [nmap_fp](#nmap_fp)
+  - [p0f](#p0f)
+
 ## 官方文档
 
 https://scapy.readthedocs.io/en/latest/introduction.html
@@ -20,7 +86,7 @@ https://scapy.readthedocs.io/en/latest/introduction.html
 pip install --pre scapy[basic]
 ```
 
-# 0x01 起航 Scapy
+## 起航 Scapy
 
 Scapy 的交互 shell 是运行在一个终端会话当中。因为需要 root 权限才能发送数据包，所以我们在这里使用 `sudo`
 
@@ -31,10 +97,6 @@ scapy -H
 ```shell
 Welcome to Scapy (2.4.5) using IPython 7.29.0
 ```
-
-# 0x02 互动教程
-
-本节将会告诉您一些 Scapy 的功能。让我们按上文所述打开 Scapy，亲自尝试些例子吧。
 
 ## 第一步
 
@@ -349,6 +411,32 @@ IP / TCP 192.168.8.14:20 > 192.168.8.1:23 S ==> Ether / IP / TCP 192.168.8.1:23 
 ```
 
 如果对于应答数据包有速度限制，你可以通过 `inter` 参数来设置两个数据包之间等待的时间间隔。如果有些数据包丢失了，或者设置时间间隔不足以满足要求，你可以重新发送所有无应答数据包。你可以简单地对无应答数据包列表再调用一遍函数，或者去设置 `retry` 参数。如果 retry 设置为 3，scapy 会对无应答的数据包重复发送三次。如果 retry 设为 -3，scapy 则会一直发送无应答的数据包，直到。`timeout` 参数设置在最后一个数据包发出去之后的等待时间：
+
+## Flags
+
+```
+FIN = 0x01
+SYN = 0x02
+RST = 0x04
+PSH = 0x08
+ACK = 0x10
+URG = 0x20
+ECE = 0x40
+CWR = 0x80
+```
+
+```python
+flags = {
+    'F': 'FIN',
+    'S': 'SYN',
+    'R': 'RST',
+    'P': 'PSH',
+    'A': 'ACK',
+    'U': 'URG',
+    'E': 'ECE',
+    'C': 'CWR',
+}
+```
 
 ## SYN Scans
 
@@ -1082,8 +1170,6 @@ $ ifconfig wlan0ap up
           Dot11Elt(ID="TIM",info="\x00\x01\x00\x00"),iface="wlan0ap",loop=1)
 ```
 
-# 0x02 Simple one-liners
-
 ## ACK Scan
 
 使用 Scapy 强大的数据包功能，我们可以快速地复制经典的 TCP 扫描。例如，模拟 ACK Scan 将会发送以下字符串：
@@ -1215,7 +1301,7 @@ Land attack (designed for Microsoft Windows):
 >>> send(IP(src=target,dst=target)/TCP(sport=135,dport=135))
 ```
 
-## ARP cache poisoning
+## ARP 缓存投毒
 
 这种攻击可以通过 VLAN 跳跃攻击投毒 ARP 缓存，使得其他客户端无法加入真正的网关地址。
 
@@ -1226,7 +1312,7 @@ Land attack (designed for Microsoft Windows):
       inter=RandNum(10,40), loop=1 )
 ```
 
-使用double 802.1q封装进行ARP缓存投毒：
+使用 double 802.1q 封装进行 ARP 缓存投毒：
 
 ```shell
 >>> send( Ether(dst=clientMAC)/Dot1Q(vlan=1)/Dot1Q(vlan=2)
@@ -1367,11 +1453,9 @@ Received 75 packets, got 28 answers, remaining 2 packets
 12:34:56:78:90:12 NETGEAR      6L   short-slot+ESS+privacy+short-preamble
 ```
 
-# 0x03 Recipes
-
 ## Simplistic ARP Monitor
 
-以下的程序使用了`sniff()`函数的回调功能（prn参数）。将store参数设置为0，就可以使`sniff()`函数不存储任何数据（否则会存储），所以就可以一直嗅探下去。filter参数 则用于在高负荷的情况下有更好的性能：filter会在内核中应用，而且Scapy就只能嗅探到ARP流量。
+以下的程序使用了`sniff()`函数的回调功能 prn 参数。将 store 参数设置为 0，就可以使 `sniff()` 函数不存储任何数据否则会存储，所以就可以一直嗅探下去。filter 参数 则用于在高负荷的情况下有更好的性能：filter 会在内核中应用，而且 Scapy 就只能嗅探到 ARP 流量。
 
 ```shellpython
 #! /usr/bin/env python
@@ -1388,11 +1472,11 @@ sniff(prn=arp_monitor_callback, filter="arp", store=0)
 
 ### Problem
 
-你怀疑有人已经在你的LAN中安装了额外的未经授权的DHCP服务器-无论是故意的还是有意的。因此你想要检查是否有任何活动的DHCP服务器，并确定他们的IP和MAC地址。
+你怀疑有人已经在你的 LAN 中安装了额外的未经授权的 DHCP 服务器-无论是故意的还是有意的。因此你想要检查是否有任何活动的 DHCP 服务器，并确定他们的 IP 和 MAC 地址。
 
 ### Solution
 
-使用Scapy发送一个DHCP发现请求，并分析应答：
+使用 Scapy 发送一个 DHCP 发现请求，并分析应答：
 
 ```shell
 >>> conf.checkIPaddr = False
@@ -1405,7 +1489,7 @@ Finished to send 1 packets.
 Received 8 packets, got 2 answers, remaining 0 packets
 ```
 
-在这种情况下，我们得到了两个应答，所以测试网络上有两个活动的DHCP服务器：
+在这种情况下，我们得到了两个应答，所以测试网络上有两个活动的 DHCP 服务器：
 
 ```shell
 >>> ans.summarize()
@@ -1422,9 +1506,9 @@ We are only interested in the MAC and IP addresses of the replies:
 
 ### Discussion
 
-我们设置`multi=True`来确保Scapy在接收到第一个响应之后可以等待更多的应答数据包。这也就是我们为什么不用更方便的`dhcp_request()`函数，而是手动地构造DCHP数据包的原因：`dhcp_request()`使用`srp1()`来发送和接收数据包，这样在接收到一个应答数据包之后就会立即返回。
+我们设置`multi=True`来确保 Scapy 在接收到第一个响应之后可以等待更多的应答数据包。这也就是我们为什么不用更方便的`dhcp_request()`函数，而是手动地构造 DCHP 数据包的原因：`dhcp_request()`使用`srp1()`来发送和接收数据包，这样在接收到一个应答数据包之后就会立即返回。
 
-此外，Scapy通常确保应答来源于之前发送请求的目的地址。但是我们的DHCP数据包被发送到IP广播地址（255.255.255.255），任何应答数据包都将回复DCHP服务器的IP地址作为其源IP地址（e.g. 192.168.1.1）。由于这些IP地址不匹配，我们必须在发送请求前使用`conf.checkIPaddr = False`来禁用Scapy的check。
+此外，Scapy 通常确保应答来源于之前发送请求的目的地址。但是我们的 DHCP 数据包被发送到 IP 广播地址（255.255.255.255），任何应答数据包都将回复 DCHP 服务器的 IP 地址作为其源 IP 地址（e.g. 192.168.1.1）。由于这些 IP 地址不匹配，我们必须在发送请求前使用`conf.checkIPaddr = False`来禁用 Scapy 的 check。
 
 ### See also
 
@@ -1432,7 +1516,7 @@ We are only interested in the MAC and IP addresses of the replies:
 
 ## Firewalking
 
-TTL减一操作过滤后，只有没被过滤的数据包会产生一个ICMP TTL超时
+TTL 减一操作过滤后，只有没被过滤的数据包会产生一个 ICMP TTL 超时
 
 ```shell
 >>> ans, unans = sr(IP(dst="172.16.4.27", ttl=16)/TCP(dport=(1,1024)))
@@ -1452,7 +1536,7 @@ TTL减一操作过滤后，只有没被过滤的数据包会产生一个ICMP TTL
 
 ### Problem
 
-在比较流行的端口扫描器中，一种常见的情况就是没有设置TCP时间戳选项，而许多防火墙都包含一条规则来丢弃这样的TCP数据包。
+在比较流行的端口扫描器中，一种常见的情况就是没有设置 TCP 时间戳选项，而许多防火墙都包含一条规则来丢弃这样的 TCP 数据包。
 
 ### Solution
 

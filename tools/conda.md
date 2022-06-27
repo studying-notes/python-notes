@@ -29,6 +29,8 @@ Anaconda 是 shell 的发行版，集成了大量的科学计算第三方库。C
   - [创建虚拟环境](#创建虚拟环境)
   - [激活虚拟环境](#激活虚拟环境)
   - [退出当前虚拟环境](#退出当前虚拟环境)
+  - [删除虚拟环境](#删除虚拟环境)
+  - [自动激活虚拟环境](#自动激活虚拟环境)
 
 ## 安装
 
@@ -106,6 +108,10 @@ conda create -n environment ipython-notebook numpy
 
 `-n` 虚拟环境名称，后面跟的都是需要安装的依赖包。
 
+```shell
+conda create -n environment python=3.10
+```
+
 ### 激活虚拟环境
 
 ```shell
@@ -116,4 +122,16 @@ conda activate environment
 
 ```shell
 conda deactivate
+```
+
+### 删除虚拟环境
+
+```shell
+conda env remove -n environment
+```
+
+### 自动激活虚拟环境
+
+```shell
+conda config --set auto_activate_base false
 ```
