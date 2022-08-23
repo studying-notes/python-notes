@@ -6,9 +6,8 @@ author: "Rustle Karl"  # 作者
 title: "Python 学习笔记"  # 文章标题
 description: "纸上得来终觉浅，学到过知识点分分钟忘得一干二净，今后无论学什么，都做好笔记吧。"
 url:  "posts/python/README"  # 设置网页永久链接
-tags: [ "Python", "README" ]  # 标签
-series: [ "Python 学习笔记" ]  # 系列
-categories: [ "学习笔记" ]  # 分类
+tags: [ "Python", "README" ]
+categories: [ "Python 学习笔记" ]
 
 index: true  # 是否可以被索引
 toc: true  # 是否自动生成目录
