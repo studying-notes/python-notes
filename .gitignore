@@ -1,4 +1,7 @@
 .idea/
 
+build/
+dist/
+
 *.dev.* 
 cutter.yaml
